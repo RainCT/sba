@@ -35,7 +35,7 @@ generate_messages(DEPENDENCIES std_msgs visualization_msgs geometry_msgs)
 catkin_package(
     LIBRARIES sba
     INCLUDE_DIRS include
-    DEPENDS Eigen
+    DEPENDS Eigen bpcg
     CFG_EXTRAS sba-extra.cmake
 )
 
