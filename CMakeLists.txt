@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 2.8.3)
 
 project(sba)
 
-set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS}")
-
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(catkin REQUIRED COMPONENTS bpcg message_generation std_msgs visualization_msgs geometry_msgs)
@@ -38,8 +36,6 @@ catkin_package(
     DEPENDS Eigen
     CFG_EXTRAS sba-extra.cmake
 )
-
-#add_definitions(${EIGEN_DEFINITIONS})
 
 #####################################################################
 # SBA library
