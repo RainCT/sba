@@ -4,7 +4,12 @@ project(sba)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-find_package(catkin REQUIRED COMPONENTS bpcg message_generation std_msgs visualization_msgs geometry_msgs)
+find_package(catkin REQUIRED COMPONENTS
+    bpcg
+    roscpp
+    message_generation
+    visualization_msgs
+)
 find_package(Boost REQUIRED COMPONENTS thread)
 find_package(Eigen REQUIRED)
 find_package(SuiteSparse REQUIRED)
@@ -28,12 +33,13 @@ add_message_files(FILES
     Projection.msg
     WorldPoint.msg
 )
-generate_messages(DEPENDENCIES std_msgs visualization_msgs geometry_msgs)
+generate_messages(DEPENDENCIES visualization_msgs)
 
 catkin_package(
     LIBRARIES sba
     INCLUDE_DIRS include
-    DEPENDS Eigen bpcg
+    DEPENDS Eigen SuiteSparse
+    CATKIN_DEPENDS bpcg
     CFG_EXTRAS sba-extra.cmake
 )
 
@@ -46,3 +52,4 @@ target_link_libraries(sba blas lapack cholmod cxsparse)
 
 # SBA library with ROS & utilities, including reading from file and visualization.
 add_library(sba_vis src/visualization.cpp)
+target_link_libraries(sba_vis sba ${catkin_LIBRARIES})

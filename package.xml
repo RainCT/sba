@@ -26,9 +26,4 @@
   <run_depend>suitesparse</run_depend>
   <run_depend>eigen</run_depend>
 
-  <!-- REMOVE THIS! -->
-  <export>
-    <cpp cflags="-DSBA_CHOLMOD -I${prefix}/include -I${prefix}/msg/cpp" lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lsba -lsba_vis"/>
-    <rosdoc config="rosdoc.yaml"/>
-  </export>
 </package>
