@@ -78,6 +78,8 @@ namespace sba
 {
   // SBA system functions
   
+  const double ConP2::qScale = 1.0;
+
   // Adds a node to the system. 
   // \return the index of the node added.
   int SysSBA::addNode(Eigen::Matrix<double,4,1> &trans, 

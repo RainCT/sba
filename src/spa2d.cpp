@@ -62,6 +62,8 @@ static long long utime()
 namespace sba
 {
 
+  const double Con2dP2::qScale = 1.0;
+
   // R = [[c -s][s c]]
   // [R' | R't]
   void Node2d::setTransform()
