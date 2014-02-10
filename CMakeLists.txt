@@ -43,8 +43,6 @@ catkin_package(
     CFG_EXTRAS sba-extra.cmake
 )
 
-#####################################################################
-# SBA library
 add_library(sba
     src/sba.cpp src/spa.cpp src/spa2d.cpp src/csparse.cpp src/proj.cpp src/node.cpp src/sba_file_io.cpp
 )
@@ -53,3 +51,9 @@ target_link_libraries(sba blas lapack cholmod cxsparse)
 # SBA library with ROS & utilities, including reading from file and visualization.
 add_library(sba_vis src/visualization.cpp)
 target_link_libraries(sba_vis sba ${catkin_LIBRARIES})
+
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h")
+
+install(TARGETS sba DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
