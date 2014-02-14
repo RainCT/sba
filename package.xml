@@ -5,6 +5,7 @@
   <description>Sparse bundle adjustment and Sparse pose adjustment.</description>
   <maintainer email="luca.marchionni@pal-robotics.com">Luca Marchionni</maintainer>
   <author>Kurt Konolige</author>
+  <author>Helen Oleynikova</author>
   <license>BSD</license>
 
   <run_depend>catkin</run_depend>
